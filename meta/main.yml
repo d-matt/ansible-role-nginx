@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: mdi, fxv
+  description: Install and configure nginx
+  company: Octo
+  license: MIT
+  min_ansible_version: 1.9
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+dependencies:
+  - role: letsencrypt
+    letsencrypt_domain_name: "{{ nginx_vhost_fqdn }}"

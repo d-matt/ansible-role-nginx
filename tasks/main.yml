@@ -1,0 +1,46 @@
+---
+- name: Install nginx
+  package:
+    name: nginx
+    state: present
+
+- name: Ensure default site is deactivated
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: Reload nginx
+
+- name: Ensure dependency needed by the ansible module 'htpasswd' is present
+  package:
+    name: python-passlib
+    state: present
+
+- name: Add a user in htpasswd
+  htpasswd:
+    path: /etc/nginx/.htpasswd
+    name: "{{ nginx_basic_auth_user }}"
+    password: "{{ nginx_basic_auth_password }}"
+    owner: root
+    group: www-data
+    mode: 0640
+  when: nginx_basic_auth_user != None and nginx_basic_auth_password != None
+
+- name: Create virtual host file
+  copy:
+    content: "{{ nginx_conf_content }}"
+    dest: /etc/nginx/sites-available/{{ nginx_vhost_name }}.conf
+  notify: Reload nginx
+
+- name: Add symlink for vhost configuration
+  file:
+    src: "/etc/nginx/sites-available/{{ nginx_vhost_name }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_vhost_name }}.conf"
+    state: link
+  notify: Reload nginx
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+...
