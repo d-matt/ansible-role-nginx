@@ -12,4 +12,4 @@ galaxy_info:
         - xenial
 dependencies:
   - role: letsencrypt
-    letsencrypt_domain_name: "{{ nginx_vhost_fqdn }}"
+    letsencrypt_domain_name: "{{ nginx_server_name }}"
