@@ -10,6 +10,6 @@
       - net-tools
       - iproute
   vars:
-    is_dev: true
+    letsencrypt_is_dev: true
   roles:
     - role: nginx
