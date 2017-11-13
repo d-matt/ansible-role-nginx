@@ -12,4 +12,4 @@
   vars:
     letsencrypt_is_dev: true
   roles:
-    - role: nginx
+    - role: ansible-role-nginx
