@@ -23,7 +23,7 @@
     owner: root
     group: www-data
     mode: 0640
-  when: nginx_basic_auth_user != None and nginx_basic_auth_password != None
+  when: nginx_basic_auth_user != "" and nginx_basic_auth_password != ""
 
 - name: Create virtual host file
   copy:
