@@ -23,6 +23,7 @@ Default variables:
     nginx_basic_auth_password: ""
     nginx_conf_content: "{{ lookup('template', 'default.conf.j2') }}"
     nginx_server_name: example.com
+    nginx_vhost_service_host: 127.0.0.1
     nginx_vhost_service_port: 8080
 
 Dependencies
