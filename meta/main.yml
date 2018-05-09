@@ -2,7 +2,7 @@
 galaxy_info:
   author: mdi, fxv
   description: Install and configure nginx
-  company: Octo
+  company: Thales Digital Factory
   license: MIT
   min_ansible_version: 1.9
 
