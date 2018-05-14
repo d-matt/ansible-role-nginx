@@ -2,7 +2,6 @@
 galaxy_info:
   author: mdi, fxv
   description: Install and configure nginx
-  company: Thales Digital Factory
   license: MIT
   min_ansible_version: 1.9
 
