@@ -42,7 +42,7 @@ server {
     error_log  /var/log/nginx/error_{{ nginx_server_name }}.log;
 
     location /.well-known {
-        alias /var/www/.well-known;
+        alias /var/www/html/.well-known;
     }
 
     location / {
