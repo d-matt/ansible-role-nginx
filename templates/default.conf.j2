@@ -41,6 +41,9 @@ server {
     access_log /var/log/nginx/access_{{ nginx_server_name }}.log combined;
     error_log  /var/log/nginx/error_{{ nginx_server_name }}.log;
 
+    # Hide Nginx version
+    server_tokens off;
+
     location /.well-known {
         alias /var/www/html/.well-known;
     }
