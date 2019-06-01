@@ -1,5 +1,5 @@
 ---
-- src: git@gitlab.thalesdigital.io:ecosystem/infra/ansible-role-letsencrypt.git
+- src: git@git.chezmatthi.eu:matthieu/ansible-role-letsencrypt.git
   scm: git
   name: letsencrypt
   version: master

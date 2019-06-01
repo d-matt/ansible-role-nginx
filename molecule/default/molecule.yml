@@ -6,10 +6,10 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ubuntu16.04
-    image: ubuntu:16.04
-    privileged: True
-    command: /sbin/init
+  - name: ubuntu18.04
+    image: ubuntu:18.04
+    # privileged: True
+    # command: /sbin/init
 provisioner:
   name: ansible
   lint:

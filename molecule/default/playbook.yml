@@ -4,11 +4,11 @@
   pre_tasks:
   - name: install net-tools an iproute as netstat and ip are needed by the tests
     package:
-      name: "{{ item }}"
+      name: "{{ item }}"
       state: present
     with_items:
       - net-tools
-      - iproute
+      - iproute2
   vars:
     letsencrypt_is_dev: true
   roles:
