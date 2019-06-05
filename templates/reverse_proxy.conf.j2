@@ -1,3 +1,9 @@
+upstream {{ nginx_server_name }}.upstream  {
+{% for server in nginx_vhost_service_hosts %}
+  server {{ server }}:{{ nginx_vhost_service_port }} ;
+{% endfor -%}
+}
+
 server {
     listen 80;
     listen [::]:80;
@@ -55,7 +61,7 @@ server {
         proxy_set_header Authorization "";
 {% endif %}
 
-        proxy_pass http://{{ nginx_vhost_service_host }}:{{ nginx_vhost_service_port }};
+        proxy_pass http://{{ nginx_server_name }}.upstream;
 
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
