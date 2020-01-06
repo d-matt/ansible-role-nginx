@@ -28,7 +28,7 @@
 
 - name: Ensure dependency needed by the ansible module 'htpasswd' is present
   package:
-    name: python-passlib
+    name: python3-passlib
     state: present
 
 - name: Add a user in htpasswd
